@@ -1,0 +1,8 @@
+<a href="{% url 'home' %}">back home</a>
+
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create article</button>
+</form>

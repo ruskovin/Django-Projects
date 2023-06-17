@@ -1,0 +1,25 @@
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:0;
+    background-color:silver;
+}
+
+h1{
+    text-align:center;
+}
+
+
+.add-task{
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    flex-direction: column;
+}
+
+table tr:nth-of-type(even){
+    background-color:black;
+}

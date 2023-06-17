@@ -1,0 +1,18 @@
+<h1> Register page</h1>
+ 
+<div>
+    <a href="{% url 'home' %}">Home</a>
+    <form action="" method="POST">
+        {% csrf_token %}
+    {% for field in form %}
+    
+    <div>
+    {{field.label}}
+    {{field}}
+    </div>
+    
+    {% endfor %}
+    <button type='submit'>Create user</button>
+    </form>
+    Already have an account ? <a href="{% url 'login' %}">Login</a>
+</div>

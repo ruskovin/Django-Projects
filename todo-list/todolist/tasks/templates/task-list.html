@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <h1>To-do List</h1>
+    <div class="container add">
+        <form class="add-task" method="POST" action="" name="add-task">
+            {% csrf_token %}
+            {{ form.title }}
+            <button type='submit' class='btn btn-primary'>Add</button>
+        </form>
+    </div>
+    <div class="container d-flex justify-content-center mt-5 taks-list">
+        <table class="table">
+            <tr class="d-table-row">
+                <th class="d-table-cell">Tasks</th>
+                <th>View</th>
+                <th>Update task</th>
+                <th>Delete task</th>
+            </tr>
+            {% for task in tasks %}
+                <tr class="d-table-row">
+                    <td class="d-table-cell">
+                        {% if task.status %}
+                            <br />
+                            <s>{{ task.title }}</s>
+                            <a href="set_status/{{task.id}}" class="btn btn-outline-info p-1">set status</a>
+                            <span class="text-success d-block">Done</span>
+                        {% else %}
+                            <br />
+                            {{ task.title }}
+                            <a href="set_status/{{task.id}}" class="btn btn-outline-info p-1">set status</a>
+                            <span class="text-danger d-block">Not Done</span>
+                        {% endif %}
+                    </td>
+                    <td class="d-table-cell">
+                        <a href="task-detail/{{ task.id }}"
+                           class="text-decoration-none btn btn-info p-1">View task</a>
+                    </td>
+                    <td class="d-table-cell">
+                        <a href="update_task/{{ task.id }}" class="btn btn-primary p-1">Update</a>
+                    </td>
+                    <td class="d-table-cell">
+                        <a href="delete_task/{{ task.id }}" class="btn btn-danger p-1">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock content %}

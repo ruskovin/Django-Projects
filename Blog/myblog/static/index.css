@@ -1,0 +1,9 @@
+.article-image{
+    opacity:.8;
+    border-radius: 10%;
+}
+
+.article-image:hover{
+    opacity:1;
+    transform: scale(1.1);
+}

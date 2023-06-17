@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <a href="{% url 'home' %}" class="btn btn-primary text-decoration-none">Go back</a>
+    <h2 class="text-">Task: {{ task.title }}</h2>
+    <h2>
+        Status:
+        {% if task.status %}
+            <span class="text-success">Done</span>
+        {% else %}
+            <span class="text-danger">Not Done</span>
+        {% endif %}
+    </h2>
+    <h3>Task created on {{ task.date_created }}</h3>
+{% endblock content %}
