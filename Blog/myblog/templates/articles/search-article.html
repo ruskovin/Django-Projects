@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Search</h1>
+    <form id="search-form" method="get" action="{% url 'search' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="search-results">
+        <h1>Search Results</h1>
+        <ul>
+            {% for result in results %}
+                <li><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></li>
+            {% empty %}
+                <li>No results found.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $('#search-form').on('submit', function(event) {
+                event.preventDefault();
+                $.ajax({
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        $('#search-results').html(data);
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

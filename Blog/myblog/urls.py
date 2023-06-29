@@ -1,5 +1,9 @@
 from django.urls import path
+<<<<<<< HEAD
+from .views import Login, registerView, CreateArticleView, DeleteArticleView, UpdateArticleView, HomeView, searchView
+=======
 from .views import Login, registerView, index, CreateArticleView, DeleteArticleView, UpdateArticleView, HomeView
+>>>>>>> 1c44ffbeda1912d53719e815e941f187747bbc49
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LogoutView
@@ -14,6 +18,10 @@ urlpatterns = [
     path('create-article',CreateArticleView.as_view(), name='create-article' ),
     path('update-article/<int:pk>',UpdateArticleView.as_view(), name='update-article' ),
     path('delete-article/<int:pk>',DeleteArticleView.as_view(), name='delete-article' ),
+<<<<<<< HEAD
+    path('search-article',searchView, name='search' ),
+=======
+>>>>>>> 1c44ffbeda1912d53719e815e941f187747bbc49
 ]
 
 

@@ -8,7 +8,11 @@ from django.views import View
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
+<<<<<<< HEAD
+from .forms import LoginForm, RegisterForm, CreateArticleForm, SearchForm
+=======
 from .forms import LoginForm, RegisterForm, CreateArticleForm
+>>>>>>> 1c44ffbeda1912d53719e815e941f187747bbc49
 from .models import Article
 # Create your views here.
 
@@ -20,6 +24,18 @@ class HomeView(ListView, View):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["username"] = self.request.user.username
+<<<<<<< HEAD
+        context['search'] = SearchForm()
+        return context
+
+# def index(request):
+#     articles = Article.objects.order_by('-date_created')
+#     context ={
+#         'articles':articles,
+#         'username':request.user.username,
+#     }
+#     return render(request, 'articles/index.html', context)
+=======
         return context
 
 def index(request):
@@ -29,6 +45,7 @@ def index(request):
         'username':request.user.username,
     }
     return render(request, 'articles/index.html', context)
+>>>>>>> 1c44ffbeda1912d53719e815e941f187747bbc49
 
 
 
@@ -90,4 +107,14 @@ class UpdateArticleView(UpdateView):
     template_name = 'articles/update-article.html'
     success_url = reverse_lazy('home')
     fields = ['title','image', 'content']
+<<<<<<< HEAD
     queryset = Article.objects.all()
+    
+def searchView(request):
+    query = request.GET.get('query')
+    results = Article.objects.filter(title__icontains='query')
+    form = SearchForm
+    return render(request,'articles/search-article.html',{'results':results, "form":form})
+=======
+    queryset = Article.objects.all()
+>>>>>>> 1c44ffbeda1912d53719e815e941f187747bbc49

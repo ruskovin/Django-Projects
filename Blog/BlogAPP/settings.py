@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # third party apps
     'myblog',
+<<<<<<< HEAD
+    'rest_framework',
+=======
+>>>>>>> 1c44ffbeda1912d53719e815e941f187747bbc49
 ]
 
 MIDDLEWARE = [

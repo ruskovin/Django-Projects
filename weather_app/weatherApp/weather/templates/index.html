@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {#    <link rel="stylesheet" href="{% static 'index.css' %}">#}
+</head>
+<body class="bg-info">
+<h1 class="text-center">Weather app</h1>
+<form action="" method="post" class="container input-group w-25 mb-3">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-success p-1">Add</button>
+
+</form>
+<div class="wrapper container w-100">
+        <div class="row">
+    {% for city_data in cities_data %}
+            <div class="col">
+                <img src="{{ city_data.icon }}" alt="current_temp_icon">
+                <p>city: {{ city_data.city_name }}</p>
+                <p>country: {{ city_data.country }}</p>
+                <p>temperature: {{ city_data.temp }}°C</p>
+                <p>description: {{ city_data.description }}</p>
+                <a href="delete_city/{{ city_data.id }}" class="link">Delete_city</a>
+            </div>
+    {% endfor %}
+        </div>
+</div>
+</body>
+</html>
