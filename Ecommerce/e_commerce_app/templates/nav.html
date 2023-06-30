@@ -41,7 +41,7 @@
         <div class="d-flex align-items-center">
             <!-- Icon -->
             {% if user.is_authenticated %}
-                <a class="nav-link me-3" href="#">
+                <a class="nav-link me-3" href="{% url 'e_commerce_app:order-summary' %}">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="badge rounded-pill badge-notification bg-danger">{{ request.user | cart_item_count }}</span>
                 </a>
