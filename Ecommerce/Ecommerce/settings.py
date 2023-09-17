@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'e_commerce_app',
 
+    'livereload',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -53,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+
 ]
 
 ROOT_URLCONF = 'Ecommerce.urls'
@@ -125,6 +128,17 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# STORAGES = {
+#     # ...
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
+STATIC_ROOT = BASE_DIR / "static"
+#
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -144,3 +158,5 @@ LOGOUT_REDIRECT_URL = 'account_login'
 
 # Crispy Bootstrap 4
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+

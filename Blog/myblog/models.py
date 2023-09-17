@@ -15,6 +15,4 @@ class Article(models.Model):
     def __repr__(self) -> str:
         return f"Article:{self.title} author: {self.author}"
     
-    
-    
-    
+        

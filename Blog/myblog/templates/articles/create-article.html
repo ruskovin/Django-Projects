@@ -1,8 +1,22 @@
-<a href="{% url 'home' %}">back home</a>
-
-
-<form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create article</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+              href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+        <title>Create-article</title>
+    </head>
+    <body class="m-2 ">
+        <main class="">
+            <a href="{% url 'home' %}" class="btn btn-danger m-2">back home</a>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button type="submit" class="btn btn-success">Create article</button>
+            </form>
+        </main>
+    </body>
+</html>

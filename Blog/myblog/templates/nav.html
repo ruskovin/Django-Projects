@@ -1,16 +1,12 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-<<<<<<< HEAD
       <a class="navbar-brand" href="#"><img src="{% static 'g3152.svg' %}" alt="" width='40px' height='40px' ></a>
-=======
-      <a class="navbar-brand" href="#"><img src="{%static 'g3152.svg'%}" alt="" width='40px' height='40px' ></a>
->>>>>>> 1c44ffbeda1912d53719e815e941f187747bbc49
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex w-100">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
           </li>
@@ -38,18 +34,11 @@
                 <a class="nav-link" href="{% url 'login' %}">Login</a>
             </li>
           {% endif %}
+          <li class="nav-item align-self-end">
+            <a class="nav-link ms-1" href="{% url 'profile' request.user.id %}"> My profile</a>
+          </li>
         </ul>
-<<<<<<< HEAD
-        <form class="d-flex" id="search-form" role="search" action="{% url 'search'%}">
-          {%csrf_token%}
-          {% comment %} <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search"> {% endcomment %}
-          {{search.field}}
-=======
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
->>>>>>> 1c44ffbeda1912d53719e815e941f187747bbc49
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+      
       </div>
     </div>
   </nav>

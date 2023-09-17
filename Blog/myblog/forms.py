@@ -18,20 +18,19 @@ class RegisterForm(UserCreationForm):
         model= User
         fields = ['username','email','password1','password2']
         
-        
+    
 
 class CreateArticleForm(forms.ModelForm):
     class Meta:
         model = Article
         exclude = ('author',)
+        widgets = {
+            'title': forms.TextInput(attrs={"class":'input'})
+        }
         
         def __init__(self, *args, **kwargs):
             super(CreateArticleForm, self).__init__(*args, **kwargs)
-<<<<<<< HEAD
             self.fields['image'].required = False
             
 class SearchForm(forms.Form):
     query = forms.CharField()
-=======
-            self.fields['image'].required = False
->>>>>>> 1c44ffbeda1912d53719e815e941f187747bbc49

@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <img src="{{article.image.url}}" alt="">
+    <h1 class="my-2">{{article.title}}</h1>
+    <div class="container my-4">
+        {{article.content}}
+            <br>
+            <small>date :{{article.date_created}}  <br>
+                By {% if request.user.username  == article.author|lower %}
+                <a href="{% url 'profile' article.author.id %}">me</a>  
+                {% else %}
+                {{ article.author }}
+                {% endif %}
+        </small>
+    </div>
+</div>
+
+{% endblock content %}
