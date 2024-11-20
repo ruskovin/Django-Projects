@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Task(models.Model):
-    ''' This is the task model of the todo-list'''
+    ''' This is the task model of the todo-list. It is a column in the database table. '''
     title = models.TextField(max_length=100, null=False, blank=False)
     status = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)

@@ -18,21 +18,16 @@
                 <th>View</th>
                 <th>Update task</th>
                 <th>Delete task</th>
+                <th>Status</th>
             </tr>
             {% for task in tasks %}
-                <tr class="d-table-row">
-                    <td class="d-table-cell">
-                        {% if task.status %}
-                            <br />
-                            <s>{{ task.title }}</s>
-                            <a href="set_status/{{task.id}}" class="btn btn-outline-info p-1">set status</a>
-                            <span class="text-success d-block">Done</span>
-                        {% else %}
-                            <br />
-                            {{ task.title }}
-                            <a href="set_status/{{task.id}}" class="btn btn-outline-info p-1">set status</a>
-                            <span class="text-danger d-block">Not Done</span>
-                        {% endif %}
+            <tr class="d-table-row">
+                <td class="d-table-cell">
+                    {% if task.status %}
+                    <s>{{ task.title }}</s>
+                    {% else %}
+                    {{task.title}}
+                    {% endif %}
                     </td>
                     <td class="d-table-cell">
                         <a href="task-detail/{{ task.id }}"
@@ -44,7 +39,19 @@
                     <td class="d-table-cell">
                         <a href="delete_task/{{ task.id }}" class="btn btn-danger p-1">Delete</a>
                     </td>
+                    <td class="d-table-cell">
+                        {% if task.status %}
+                        <a href="set_status/{{task.id}}" class="btn btn-outline-info p-1">set status</a>
+                            <img src="{% static 'images/done.png' %}" alt="done" width="20" height="20" />
+                            <span class="text-success d-block">Done</span>
+                        {% else %}
+                            <a href="set_status/{{task.id}}" class="btn btn-outline-info p-1">set status</a>
+                            <img src="{% static 'images/not-done.png' %}" alt="done" width="20" height="20" />
+                            <span class="text-danger d-block">Not Done</span>
+                        {% endif %}
+                    </td>
                 </tr>
+                
             {% endfor %}
         </table>
     </div>

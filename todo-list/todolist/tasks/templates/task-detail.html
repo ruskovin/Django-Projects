@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block content %}
-    <a href="{% url 'home' %}" class="btn btn-primary text-decoration-none">Go back</a>
+<div class="m-3">
+    <a href="{% url 'home' %}" class="btn btn-primary text-decoration-none p-2 mt-3">Go back</a>
     <h2 class="text-">Task: {{ task.title }}</h2>
     <h2>
         Status:
@@ -11,6 +12,6 @@
         {% else %}
             <span class="text-danger">Not Done</span>
         {% endif %}
-    </h2>
     <h3>Task created on {{ task.date_created }}</h3>
+</div>
 {% endblock content %}

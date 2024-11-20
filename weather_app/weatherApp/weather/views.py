@@ -36,3 +36,4 @@ class CityDeleteView(DeleteView):
     model = City
     template_name = "delete_city.html"
     success_url= reverse_lazy('home')
+    

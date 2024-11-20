@@ -5,7 +5,7 @@
 body{
     margin:0;
     padding:0;
-    background-color:silver;
+    background-color: rgb(245, 245, 245); /* This is a light shade of gray */
 }
 
 h1{
@@ -21,5 +21,5 @@ h1{
 }
 
 table tr:nth-of-type(even){
-    background-color:black;
+    background-color:rgb(228, 182, 182);
 }
